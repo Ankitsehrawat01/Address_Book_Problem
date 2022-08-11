@@ -25,7 +25,7 @@ namespace Address_book
             Console.WriteLine("Enter Zip Code");
             con.ZipCode = long.Parse(Console.ReadLine());
             Console.WriteLine("Enter Phone Number");
-            con.Phonenumbe = long.Parse(Console.ReadLine());
+            con.Phonenumber = long.Parse(Console.ReadLine());
             add.Add(con);
         }
 
@@ -39,8 +39,61 @@ namespace Address_book
                 Console.WriteLine("city:" + data.City);
                 Console.WriteLine("state:" + data.State);
                 Console.WriteLine("Zipcode:" + data.ZipCode);
-                Console.WriteLine("PhoneNumber:" + data.Phonenumbe);
-
+                Console.WriteLine("PhoneNumber:" + data.Phonenumber);
+            }
+        }
+        public void EditContact()
+        {
+            Console.WriteLine("Enter first name to edit a contact");
+            string name = Console.ReadLine().ToLower();
+            foreach (var data in add)
+            {
+                if (add.Contains(data))
+                {
+                    if (data.FirstName.Equals(name))
+                    {
+                        Console.WriteLine("To edit contacts enter 1.FirstName\n 2.LastName\n 3.Address\n 4.City\n 5.State\n 6.Zipcode\n 7.PhoneNumber\n");
+                        int options = Convert.ToInt32(Console.ReadLine());
+                        switch (options)
+                        {
+                            case 1:
+                                string firstname = Console.ReadLine();
+                                data.FirstName = firstname;
+                                break;
+                            case 2:
+                                string lastname = Console.ReadLine();
+                                data.LastName = lastname;
+                                break;
+                            case 3:
+                                string address = Console.ReadLine();
+                                data.Address = address;
+                                break;
+                            case 4:
+                                string city = Console.ReadLine();
+                                data.City = city;
+                                break;
+                            case 5:
+                                string state = Console.ReadLine();
+                                data.State = state;
+                                break;
+                            case 6:
+                                long zipcode = long.Parse(Console.ReadLine());
+                                data.ZipCode = zipcode;
+                                break;
+                            case 7:
+                                long phonenumber = long.Parse(Console.ReadLine());
+                                data.Phonenumber = phonenumber;
+                                break;
+                            default:
+                                Console.WriteLine("Choose valid Option");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Name doesn't Matches");
+                    }
+                }
             }
         }
     }

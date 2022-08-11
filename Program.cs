@@ -13,7 +13,7 @@ namespace Address_book
             add.AddContact();
             while (true)
             {
-                Console.WriteLine("1-add,2-display");
+                Console.WriteLine("1-add, 2-display, 3-edit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -23,6 +23,9 @@ namespace Address_book
                     case 2:
                         add.Display();
                         break;
+                    case 3:
+                        add.EditContact();
+                        break ;
                 } 
 
             }
