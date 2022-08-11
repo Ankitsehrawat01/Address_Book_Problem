@@ -11,7 +11,21 @@ namespace Address_book
             Addressbook add = new Addressbook();
 
             add.AddContact();
+            while (true)
+            {
+                Console.WriteLine("1-add,2-display");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        add.AddContact();
+                        break;
+                    case 2:
+                        add.Display();
+                        break;
+                } 
 
+            }
         }
     }
 }
