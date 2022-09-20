@@ -8,8 +8,8 @@ namespace Address_book
 {
     public class Addressbook
     {
-        List<contacts> add = new List<contacts>();
-        public void AddContact()
+       public static  List<contacts> add = new List<contacts>();
+        public static void AddContact()
         {
             contacts con = new contacts();
             Console.WriteLine("Enter First Name");
@@ -29,7 +29,7 @@ namespace Address_book
             add.Add(con);
         }
 
-        public void Display()
+        public static void Display()
         {
             foreach (contacts data in add)
             {
@@ -42,7 +42,7 @@ namespace Address_book
                 Console.WriteLine("PhoneNumber:" + data.Phonenumber);
             }
         }
-        public void EditContact()
+        public static void EditContact()
         {
             Console.WriteLine("Enter first name to edit a contact");
             string name = Console.ReadLine().ToLower();
@@ -96,7 +96,7 @@ namespace Address_book
                 }
             }
         }
-        public void DeleteContact(string personName)
+        public static void DeleteContact(string personName)
         {
             for (int i = 0; i < add.Count; i++)
             {
@@ -106,6 +106,16 @@ namespace Address_book
                     add.RemoveAt(i);
 
                 }
+            }
+        }
+        public static void AddMultipleContacts()
+        {
+            Console.WriteLine("Enter the Number of Records you want to Insert");
+            int number = (int)Convert.ToInt64(Console.ReadLine());
+            while(number> 0)
+            {
+                AddContact();
+                number--;
             }
         }
     }
