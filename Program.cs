@@ -7,10 +7,8 @@ namespace Address_book
     {
 
         public static void Main(string[] args)
-        {
-            Addressbook add = new Addressbook();
-
-            add.AddContact();
+        { 
+            Addressbook.AddContact();
             while (true)
             {
                 Console.WriteLine("1-add, 2-display, 3-edit, 4-Delete");
@@ -18,18 +16,21 @@ namespace Address_book
                 switch (option)
                 {
                     case 1:
-                        add.AddContact();
+                        Addressbook.AddContact();
                         break;
                     case 2:
-                        add.Display();
+                        Addressbook.Display();
                         break;
                     case 3:
-                        add.EditContact();
+                        Addressbook.EditContact();
                         break ;
                     case 4:
                         Console.WriteLine("Enter name to delete the record");
                         string name = Console.ReadLine();
-                        add.DeleteContact(name);
+                        Addressbook.DeleteContact(name);
+                        break;
+                    case 5:
+                        Addressbook.AddMultipleContacts();
                         break;
                 }
 
